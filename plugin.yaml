@@ -1,0 +1,85 @@
+name: lookahead
+version: '0.1.0'
+description: Conversation-captured commitments with grounded preparation briefs and one post-event follow-up.
+author: Lookahead contributors
+license: MIT
+requires_hermes: '>=0.23.0'
+provides_tools: [lookahead_status]
+provides_hooks: [post_gateway_admission, post_llm_call]
+config_schema:
+  ics_enabled:
+    type: bool
+    default: false
+    description: Opt in to read-only calendar scanning; performs HTTPS network GET only when ics_url is selected. No calendar writes.
+  ics_path:
+    type: string
+    description: Explicit absolute regular ICS file, no symlinks; choose this or ics_url, never both.
+  ics_url:
+    type: string
+    description: Private HTTPS iCal address (a secret); stored only in user config, never ledger/status/logs. No redirects, credentials, cookies or environment proxies.
+  ics_freshness_hours:
+    type: int
+    default: 24
+    description: Maximum age of a local calendar export (1-168 hours); successful HTTPS responses are observed at fetch time, not proof of upstream completeness.
+  ics_timeout_seconds:
+    type: int
+    default: 5
+    description: HTTPS socket timeout and total body deadline (1-30 seconds); 1 MiB response cap.
+  capture_enabled:
+    type: bool
+    default: true
+    description: Observe normal chat turns and send bounded text to the configured host extraction model; disable to stop capture.
+  capture_cli:
+    type: bool
+    default: false
+    description: Explicit local OS-operator CLI capture opt-in; off by default.
+  operator_platform:
+    type: string
+    description: Explicit host platform for operator-only DM controls.
+  operator_user_id:
+    type: string
+    description: Explicit stable operator user ID; never inferred from chat text.
+  operator_chat_id:
+    type: string
+    description: Explicit stable operator DM ID.
+  agenda_path:
+    type: string
+    description: Explicit absolute path to a regular local agenda Markdown file.
+  readiness_path:
+    type: string
+    description: Explicit absolute path to a regular local readiness Markdown file.
+  timezone:
+    type: string
+    description: Required IANA timezone; no implicit local timezone.
+  quiet_start:
+    type: int
+    default: 22
+  quiet_end:
+    type: int
+    default: 8
+  normal_cap:
+    type: int
+    default: 3
+  urgent_cap:
+    type: int
+    default: 1
+  spacing_minutes:
+    type: int
+    default: 30
+  batch_size:
+    type: int
+    default: 3
+  freshness_minutes:
+    type: int
+    default: 15
+  horizon_hours:
+    type: int
+    default: 24
+  offer_lead_minutes:
+    type: int
+    default: 0
+    description: Visible demo timing; 0 preserves previous-local-day 18:00, positive values use due minus this many minutes for new captures.
+  followup_delay_minutes:
+    type: int
+    default: 120
+    description: Send one post-event follow-up after this delay, deferred to the next normal window during quiet hours.

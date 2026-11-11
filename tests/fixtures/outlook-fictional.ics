@@ -1,0 +1,28 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Fictional Observatory//Outlook-style fixture//EN
+BEGIN:VTIMEZONE
+TZID:Eastern Standard Time
+BEGIN:STANDARD
+DTSTART:16011104T020000
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:outlook-fictional-1
+DTSTART;TZID="Eastern Standard Time":20301101T090000
+DTEND;TZID="Eastern Standard Time":20301101T100000
+RRULE:FREQ=DAILY;COUNT=4
+SUMMARY:Fictional launch review
+DESCRIPTION:Review the mock launch board\; do not contact anyone.
+ORGANIZER:mailto:pilot@example.invalid
+END:VEVENT
+BEGIN:VEVENT
+UID:outlook-unknown-zone
+DTSTART;TZID=Unsupported Windows Zone:20301102T090000
+DTEND;TZID=Unsupported Windows Zone:20301102T100000
+SUMMARY:Visible unsupported zone
+END:VEVENT
+END:VCALENDAR

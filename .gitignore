@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+*.db
+*.db-wal
+*.db-shm
+# Private development receipts are never part of the public distribution.
+docs/evidence/
+*.log
+*.jsonl
+.env
+.env.*
+auth.json
+

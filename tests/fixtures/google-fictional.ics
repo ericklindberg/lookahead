@@ -1,0 +1,33 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Fictional Observatory//Google-style fixture//EN
+BEGIN:VEVENT
+UID:fictional-weekly@calendar.example.invalid
+DTSTART;TZID=America/New_York:20300308T090000
+DTEND;TZID=America/New_York:20300308T100000
+RRULE:FREQ=WEEKLY;BYDAY=FR,MO;COUNT=5
+EXDATE;TZID=America/New_York:20300311T090000
+SUMMARY:Orbital weekly planning
+DESCRIPTION:Bring the fictional mission notes\, one risk\n
+ and one question. Contact nobody@example.invalid is not retained.
+ATTENDEE:mailto:nobody@example.invalid
+END:VEVENT
+BEGIN:VEVENT
+UID:fictional-weekly@calendar.example.invalid
+RECURRENCE-ID;TZID=America/New_York:20300315T090000
+DTSTART;TZID=America/New_York:20300315T110000
+DTEND;TZID=America/New_York:20300315T120000
+SUMMARY:Moved orbital planning
+END:VEVENT
+BEGIN:VEVENT
+UID:fictional-weekly@calendar.example.invalid
+RECURRENCE-ID;TZID=America/New_York:20300318T090000
+STATUS:CANCELLED
+END:VEVENT
+BEGIN:VEVENT
+UID:fictional-day@calendar.example.invalid
+DTSTART;VALUE=DATE:20300310
+DTEND;VALUE=DATE:20300311
+SUMMARY:Fictional observatory maintenance day
+END:VEVENT
+END:VCALENDAR
